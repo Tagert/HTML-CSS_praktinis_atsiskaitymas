@@ -15,29 +15,31 @@ body {
 .container {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: clamp(2rem, -0.3768rem + 10.141vw, 8.75rem);
+  padding-right: clamp(2rem, -0.3768rem + 10.141vw, 8.75rem);
+  overflow: hidden;
 }
 
 .primary-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 176px;
-  height: 36.6px;
+  max-width: clamp(11rem, 7.61094rem + 14.46vw, 20.625rem);
+  height: clamp(2.2875rem, 1.48641rem + 3.418vw, 4.5625rem);
+  border-radius: 1px;
   background: linear-gradient(102deg, #647b64 -4.62%, #66ac66 178.22%);
   box-shadow: 0px 10.029px 20.058px 0px rgba(128, 143, 150, 0.19);
 }
 .primary-btn a {
-  font-size: 10px;
+  font-size: clamp(0.625rem, 0.40492rem + 0.939vw, 1.25rem);
   letter-spacing: 1.55px;
   text-transform: uppercase;
   color: #fefefe;
   text-decoration: none;
   padding-left: 15px;
-  border-radius: 1px;
 }
 .primary-btn img {
+  height: clamp(0.525rem, 0.37969rem + 0.62vw, 0.9375rem);
   padding-right: 11px;
 }
 
@@ -53,12 +55,28 @@ body {
   align-items: center;
   height: 33px;
 }
+@media screen and (min-width: 1440px) {
+  .navbar-section .main-navbar .navbar-text {
+    display: flex;
+    gap: 48px;
+  }
+}
+.navbar-section .main-navbar .navbar-text a {
+  text-decoration: none;
+  font-feature-settings: "clig" 0, "liga" 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  font-variant: small-caps;
+  color: #333333;
+}
 .navbar-section .main-navbar .navbar-text .hyperlinks {
   display: none;
 }
 @media screen and (min-width: 1440px) {
   .navbar-section .main-navbar .navbar-text .hyperlinks {
     display: flex;
+    gap: 48px;
   }
 }
 .navbar-section .main-navbar .navbar-text .styled-hyperlinks {
@@ -80,19 +98,23 @@ body {
 
 .hero-section {
   position: relative;
-  padding-top: 101px;
+  overflow: hidden;
+  padding-top: clamp(6.3125rem, 4.11172rem + 9.39vw, 12.5625rem);
+  padding-bottom: clamp(8.75rem, 6.46133rem + 9.765vw, 15.25rem);
 }
 .hero-section .hero-description h1 {
-  max-width: 260px;
-  font-size: 24px;
+  max-width: 570px;
+  font-size: clamp(1.5rem, 0.97172rem + 2.254vw, 3rem);
   font-weight: 500;
   font-variant: small-caps;
   line-height: 116%;
+  padding-right: 51px;
   color: #333333;
 }
 .hero-section .hero-description p {
-  max-width: 245px;
-  font-size: 10px;
+  max-width: 500px;
+  font-size: clamp(0.625rem, 0.40492rem + 0.939vw, 1.25rem);
+  padding-right: 70px;
   padding-top: 12.2px;
   padding-bottom: 16px;
   line-height: 132%;
@@ -101,61 +123,88 @@ body {
 }
 .hero-section .hero-image {
   position: absolute;
-  max-width: 178px;
   top: 24px;
   left: 98%;
   transform: translate(-50%, 0%);
 }
+.hero-section .hero-image img {
+  width: 178px;
+  height: 304px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 @media screen and (min-width: 1440px) {
-  .hero-section .hero-image {
-    position: relative;
-    transform: translate(-100%, 0%);
+  .hero-section .hero-image img {
+    width: 343px;
+    height: 586px;
   }
 }
-.hero-section .hero-image img {
-  max-width: 178px;
+@media screen and (min-width: 1440px) {
+  .hero-section .hero-image {
+    position: absolute;
+    -o-object-fit: contain;
+       object-fit: contain;
+    top: 65px;
+    left: 921px;
+    transform: translate(0%, 0%);
+  }
 }
 
-.transport-section {
-  margin-top: 140px;
+@media screen and (min-width: 1440px) {
+  .transport-section .transport-box {
+    display: flex;
+    justify-content: space-between;
+  }
 }
-.transport-section .transport-description .transport-title h2 {
-  font-size: 13px;
+.transport-section .transport-box .transport-description .transport-title h2 {
+  font-size: clamp(0.8125rem, 0.57039rem + 1.033vw, 1.5rem);
   font-weight: 500;
   text-transform: uppercase;
   padding-bottom: 5px;
   color: #f3b562;
 }
-.transport-section .transport-description .transport-title h3 {
-  font-size: 20px;
+.transport-section .transport-box .transport-description .transport-title h3 {
+  font-size: clamp(1.25rem, 0.78781rem + 1.972vw, 2.5625rem);
   font-weight: 500;
   text-transform: uppercase;
   color: #647b64;
   padding-bottom: 25.5px;
 }
-.transport-section .transport-description p {
-  max-width: 250px;
-  font-size: 10px;
+.transport-section .transport-box .transport-description p {
+  max-width: clamp(15.625rem, 10.56344rem + 21.596vw, 30rem);
+  font-size: clamp(0.625rem, 0.40492rem + 0.939vw, 1.25rem);
   line-height: 132%;
   letter-spacing: 0.4px;
   color: #4f4f4f;
   padding-bottom: 16.8px;
 }
-.transport-section .transport-description .p-btn {
-  max-width: 195px;
-  height: 40px;
+.transport-section .transport-box .transport-description .p-btn {
+  max-width: calc(clamp(11rem, 7.61094rem + 14.46vw, 20.625rem) + 19px);
+  height: calc(clamp(2.2875rem, 1.48641rem + 3.418vw, 4.5625rem) + 3.4px);
 }
-.transport-section .transport-list {
+.transport-section .transport-box .transport-list {
   display: flex;
   flex-basis: 50%;
   flex-wrap: wrap;
   padding-top: 72.5px;
 }
-.transport-section .transport-list .card-box {
+@media screen and (min-width: 1440px) {
+  .transport-section .transport-box .transport-list {
+    padding-top: 0;
+  }
+}
+.transport-section .transport-box .transport-list .card-box {
   max-width: 155px;
   padding: 25px 21px;
 }
-.transport-section .transport-list .card-box .icon-box {
+@media screen and (min-width: 1440px) {
+  .transport-section .transport-box .transport-list .card-box {
+    max-width: 288px;
+    height: 237px;
+    padding: 45px 27px 45px 40px;
+  }
+}
+.transport-section .transport-box .transport-list .card-box .icon-box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,7 +214,7 @@ body {
   background: #fff;
   box-shadow: 0px 2.154px 2.154px 0px rgba(0, 0, 0, 0.04);
 }
-.transport-section .transport-list .card-box h4 {
+.transport-section .transport-box .transport-list .card-box h4 {
   font-size: 12px;
   font-weight: 500;
   line-height: 116%;
@@ -174,7 +223,7 @@ body {
   padding-bottom: 3px;
   color: #333333;
 }
-.transport-section .transport-list .card-box p {
+.transport-section .transport-box .transport-list .card-box p {
   font-size: 8px;
   line-height: 132%;
   letter-spacing: 0.3px;
@@ -202,6 +251,11 @@ body {
 }
 .partners-section .partners-container .partners-title h3 .hidden {
   display: none;
+}
+@media screen and (min-width: 1440px) {
+  .partners-section .partners-container .partners-title h3 .hidden {
+    display: inline-block;
+  }
 }
 .partners-section .partners-container .partners-list {
   display: flex;
@@ -286,8 +340,8 @@ body {
   padding-bottom: 16.8px;
 }
 .clients-section .noborder-left .clients-container .clients-description .lg-btn {
-  max-width: 195px;
-  height: 40px;
+  max-width: calc(clamp(11rem, 7.61094rem + 14.46vw, 20.625rem) + 19px);
+  height: calc(clamp(2.2875rem, 1.48641rem + 3.418vw, 4.5625rem) + 3.4px);
 }
 
 .team-section {

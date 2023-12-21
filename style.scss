@@ -11,6 +11,8 @@ $color-footer-bg: #f0dcc5;
 $color-h2: #f3b562;
 $color-h3: #647b64;
 
+$spacing-32_140: clamp(2rem, -0.3768rem + 10.141vw, 8.75rem);
+
 *,
 *::before,
 *::after {
@@ -33,30 +35,32 @@ body {
 .container {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: $spacing-32_140;
+  padding-right: $spacing-32_140;
+  overflow: hidden;
 }
 
 .primary-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 176px;
-  height: 36.6px;
+  max-width: clamp(11rem, 7.61094rem + 14.46vw, 20.625rem);
+  height: clamp(2.2875rem, 1.48641rem + 3.418vw, 4.5625rem);
+  border-radius: 1px;
   background: linear-gradient(102deg, #647b64 -4.62%, #66ac66 178.22%);
   box-shadow: 0px 10.029px 20.058px 0px rgba(128, 143, 150, 0.19);
 
   a {
-    font-size: 10px;
+    font-size: clamp(0.625rem, 0.40492rem + 0.939vw, 1.25rem);
     letter-spacing: 1.55px;
     text-transform: uppercase;
     color: $color-btn-text;
     text-decoration: none;
     padding-left: 15px;
-    border-radius: 1px;
   }
 
   img {
+    height: clamp(0.525rem, 0.37969rem + 0.62vw, 0.9375rem);
     padding-right: 11px;
   }
 }
@@ -76,11 +80,27 @@ body {
     }
 
     .navbar-text {
+      @include responsive.xl {
+        display: flex;
+        gap: 48px;
+      }
+
+      a {
+        text-decoration: none;
+        font-feature-settings: "clig" 0, "liga" 0;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        font-variant: small-caps;
+        color: $color-gray-1;
+      }
+
       .hyperlinks {
         display: none;
 
         @include responsive.xl {
           display: flex;
+          gap: 48px;
         }
       }
 
@@ -105,141 +125,149 @@ body {
 
 .hero-section {
   position: relative;
-  padding-top: 101px;
+  overflow: hidden;
+  padding-top: clamp(6.3125rem, 4.11172rem + 9.39vw, 12.5625rem);
+  padding-bottom: clamp(8.75rem, 6.46133rem + 9.765vw, 15.25rem);
 
   .hero-description {
     h1 {
-      max-width: 260px;
-      font-size: 24px;
+      max-width: 570px;
+      font-size: clamp(1.5rem, 0.97172rem + 2.254vw, 3rem);
       font-weight: 500;
       font-variant: small-caps;
       line-height: 116%;
+      padding-right: 51px;
       color: $color-gray-1;
     }
 
     p {
-      max-width: 245px;
-      font-size: 10px;
+      max-width: 500px;
+      font-size: clamp(0.625rem, 0.40492rem + 0.939vw, 1.25rem);
+      padding-right: 70px;
       padding-top: 12.2px;
       padding-bottom: 16px;
       line-height: 132%;
       letter-spacing: 0.4px;
       color: $color-gray-2;
     }
-
-    // .primary-btn {
-    //   display: flex;
-    //   justify-content: space-between;
-    //   align-items: center;
-    //   width: 176px;
-    //   height: 36.6px;
-    //   background: linear-gradient(102deg, #647b64 -4.62%, #66ac66 178.22%);
-    //   box-shadow: 0px 10.029px 20.058px 0px rgba(128, 143, 150, 0.19);
-
-    //   a {
-    //     font-size: 10px;
-    //     letter-spacing: 1.55px;
-    //     text-transform: uppercase;
-    //     color: $color-btn-text;
-    //     text-decoration: none;
-    //     padding-left: 15px;
-    //     border-radius: 1px;
-    //   }
-
-    //   img {
-    //     padding-right: 11px;
-    //   }
-    // }
   }
 
   .hero-image {
     position: absolute;
-    max-width: 178px;
     top: 24px;
     left: 98%;
     transform: translate(-50%, 0%);
 
-    @include responsive.xl {
-      position: relative;
-      transform: translate(-100%, 0%);
-    }
     img {
-      max-width: 178px;
+      width: 178px;
+      height: 304px;
+      object-fit: cover;
+
+      @include responsive.xl {
+        width: 343px;
+        height: 586px;
+      }
+    }
+
+    @include responsive.xl {
+      position: absolute;
+      object-fit: contain;
+      top: 65px;
+      left: 921px;
+      transform: translate(0%, 0%);
+      // width: 343px;
+      // height: 586px;
     }
   }
 }
 
 .transport-section {
-  margin-top: 140px;
-  .transport-description {
-    .transport-title {
-      h2 {
-        font-size: 13px;
-        font-weight: 500;
-        text-transform: uppercase;
-        padding-bottom: 5px;
-        color: $color-h2;
-      }
-
-      h3 {
-        font-size: 20px;
-        font-weight: 500;
-        text-transform: uppercase;
-        color: $color-h3;
-        padding-bottom: 25.5px;
-      }
+  .transport-box {
+    @include responsive.xl {
+      display: flex;
+      justify-content: space-between;
     }
+    .transport-description {
+      .transport-title {
+        h2 {
+          font-size: clamp(0.8125rem, 0.57039rem + 1.033vw, 1.5rem);
+          font-weight: 500;
+          text-transform: uppercase;
+          padding-bottom: 5px;
+          color: $color-h2;
+        }
 
-    p {
-      max-width: 250px;
-      font-size: 10px;
-      line-height: 132%;
-      letter-spacing: 0.4px;
-      color: $color-gray-2;
-      padding-bottom: 16.8px;
-    }
-
-    .p-btn {
-      max-width: 195px;
-      height: 40px;
-    }
-  }
-
-  .transport-list {
-    display: flex;
-    flex-basis: 50%;
-    flex-wrap: wrap;
-    padding-top: 72.5px;
-    .card-box {
-      max-width: 155px;
-      padding: 25px 21px;
-
-      .icon-box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 25.3px;
-        width: 25.3px;
-        border-radius: 4.3px;
-        background: #fff;
-        box-shadow: 0px 2.154px 2.154px 0px rgba(0, 0, 0, 0.04);
-      }
-
-      h4 {
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 116%;
-        font-variant: small-caps;
-        padding-top: 8.6px;
-        padding-bottom: 3px;
-        color: $color-gray-1;
+        h3 {
+          font-size: clamp(1.25rem, 0.78781rem + 1.972vw, 2.5625rem);
+          font-weight: 500;
+          text-transform: uppercase;
+          color: $color-h3;
+          padding-bottom: 25.5px;
+        }
       }
 
       p {
-        font-size: 8px;
+        max-width: clamp(15.625rem, 10.56344rem + 21.596vw, 30rem);
+        font-size: clamp(0.625rem, 0.40492rem + 0.939vw, 1.25rem);
         line-height: 132%;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.4px;
         color: $color-gray-2;
+        padding-bottom: 16.8px;
+      }
+
+      .p-btn {
+        max-width: calc(clamp(11rem, 7.61094rem + 14.46vw, 20.625rem) + 19px);
+        height: calc(clamp(2.2875rem, 1.48641rem + 3.418vw, 4.5625rem) + 3.4px);
+      }
+    }
+
+    .transport-list {
+      display: flex;
+      flex-basis: 50%;
+      flex-wrap: wrap;
+      padding-top: 72.5px;
+
+      @include responsive.xl {
+        padding-top: 0;
+      }
+
+      .card-box {
+        max-width: 155px;
+        padding: 25px 21px;
+
+        @include responsive.xl {
+          max-width: 288px;
+          height: 237px;
+          padding: 45px 27px 45px 40px;
+        }
+
+        .icon-box {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 25.3px;
+          width: 25.3px;
+          border-radius: 4.3px;
+          background: #fff;
+          box-shadow: 0px 2.154px 2.154px 0px rgba(0, 0, 0, 0.04);
+        }
+
+        h4 {
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 116%;
+          font-variant: small-caps;
+          padding-top: 8.6px;
+          padding-bottom: 3px;
+          color: $color-gray-1;
+        }
+
+        p {
+          font-size: 8px;
+          line-height: 132%;
+          letter-spacing: 0.3px;
+          color: $color-gray-2;
+        }
       }
     }
   }
@@ -268,6 +296,9 @@ body {
 
         .hidden {
           display: none;
+          @include responsive.xl {
+            display: inline-block;
+          }
         }
       }
     }
@@ -383,8 +414,10 @@ body {
         }
 
         .lg-btn {
-          max-width: 195px;
-          height: 40px;
+          max-width: calc(clamp(11rem, 7.61094rem + 14.46vw, 20.625rem) + 19px);
+          height: calc(
+            clamp(2.2875rem, 1.48641rem + 3.418vw, 4.5625rem) + 3.4px
+          );
         }
       }
     }
@@ -472,6 +505,10 @@ body {
         }
       }
     }
+
+    // .orange-hat {
+    //   display: none;
+    // }
   }
 }
 
