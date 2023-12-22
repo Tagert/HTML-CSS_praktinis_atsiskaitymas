@@ -16,6 +16,12 @@
   }
 }
 
+@mixin lg-x {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
 @mixin xl {
   @media screen and (min-width: 1440px) {
     @content;
